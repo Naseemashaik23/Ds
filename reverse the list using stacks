@@ -1,0 +1,89 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 10
+struct node
+{
+	int data;
+	struct node*next;
+};
+typedef struct node NODE;
+void create();
+void display();
+void reverse();
+void push(int);
+int pop();
+NODE*head=NULL;
+int stack[MAX],top=-1;
+int main()
+struct node
+{
+	int data;
+	struct node*next;
+};
+typed
+{
+	create();
+	printf("list before reversal:\n");
+	display();
+	reverse();
+	printf("list after reversal:\n");
+	display();
+	return 0;
+}
+void create()
+{
+	NODE*cur,*temp;
+	char ch;
+	int item;
+	do
+	{
+		printf("enter the element:\n");
+		scanf("%d",&item);
+		temp=(NODE*)malloc(sizeof(NODE));
+		temp->data=item;
+		if(head==NULL)
+		{
+			head=cur=temp;
+		}
+		else
+		{
+			cur->next=temp;
+			cur=temp;
+		}
+		printf("do you want to continue(y/n):");
+		fflush(stdin);
+		ch=getchchar();
+	}
+	while(ch=='y'||ch=='y');
+	cur->next=NULL;
+}
+void display()
+{
+	NODE*temp=head;
+	if(head==NULL)
+		printf("list is empty\n");
+	else
+	{
+		printf("list content:\n");
+		while(temp!=NULL)
+		{
+			printf("%d",temp->data);
+			temp=temp->next;
+		}
+	}
+}
+void reverse()
+{
+	NODE*cur=head;
+	while(cur!=NULL)
+	{
+		push(cur->data);
+		cur=cur->next;
+	}
+	cur=head;
+	while(cur!=NULL)
+	{
+		cur->data=pop();
+		cur=cur->next;
+	}
+}
